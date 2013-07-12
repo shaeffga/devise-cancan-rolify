@@ -1,0 +1,15 @@
+%h2 Jims Rant
+
+%table
+  %thead
+    %tr
+      %th Issue
+      %th Description
+      %th Options
+  %tbody
+    %tr 
+      %td= @jim.issue
+      %td= @jim.complaining
+      %td
+        = link_to "Delete", @jim, method: :delete, data: { confirm: "Are you sure you want to remove this request?"}, class: 'tiny alert button'
+        = link_to "Edit", edit_jim_path(@jim), class: 'tiny button'

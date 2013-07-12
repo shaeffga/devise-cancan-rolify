@@ -1,0 +1,16 @@
+.small-12.columns
+  %h3
+    Jims Rants
+
+.small-12.columns
+  - @jims.each do |rant|
+    %div{style:"margin: 10px 0; border: 2px solid #f26e25; padding: 5px;"}
+      %div
+        %strong
+          = link_to rant.issue, jim_path(rant)
+        %br
+          = rant.created_at
+
+.small-12.columns
+  %div
+    = link_to 'Click here to rant', new_jim_path, class: 'button'

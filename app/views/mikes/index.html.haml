@@ -1,0 +1,18 @@
+.small-12.columns
+  %h3
+    Mikes Rants
+
+.small-12.columns
+  - if can? :read, Mike
+    - @mikes.each do |rant|
+      %div{style:"margin: 10px 0; border: 2px solid #f26e25; padding: 5px;"}
+        %div
+          %strong
+            = link_to rant.issue, mike_path(rant)
+          %br
+            = rant.created_at
+
+.small-12.columns
+  %div
+    - if can? :manage, Mike
+      = link_to 'Click here to rant', new_mike_path, class: 'button'

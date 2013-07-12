@@ -1,0 +1,42 @@
+.small-10.columns
+  %h1 Devise, Cancan, Rolify
+
+  %p Hello and welcome to Gage Alan Shaeffers presentation on devise, cancan, and rolify. The gems that are about to be discussed are used for users to be assigned roles and authentacate where they can go and what they can do. 
+  %strong Take a look at the table below than click picture to begin the lunch and learn.
+  %br
+  %br
+.small-10.columns
+  %table
+    %thead
+      %tr
+        %th Gem
+        %th Description
+        %th Github page
+
+    %tbody
+      %tr
+        %td Devise
+        %td Devise is a flexible authentication solution for Rails based on Warden.
+        %td 
+          %a{:href => "https://github.com/plataformatec/devise"} plataformatec/devise
+      %tr
+        %td Cancan
+        %td CanCan is an authorization library for Ruby on Rails which restricts what resources a given user is allowed to access. All permissions are defined in a single location (the Ability class) and not duplicated across controllers, views, and database queries.
+        %td 
+          %a{:href => 'https://github.com/ryanb/cancan'} ryanb/cancan
+      %tr
+        %td Rolify
+        %td Authorization gem that doesn't provide a role class.
+        %td 
+          %a{:href => 'https://github.com/EppO/rolify'} EppO/rolify
+%div{style:"border: 4px solid #2ba6cb; padding: 5px;"}
+  = link_to image_tag('funny-home-button.png'), new_user_registration_path
+
+
+
+
+
+
+
+
+

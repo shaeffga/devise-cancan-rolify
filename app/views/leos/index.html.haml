@@ -1,0 +1,16 @@
+.small-12.columns
+  %h3
+    Leos Rants
+
+.small-12.columns
+  - if can? :read, Leo
+    - @leos.each do |rant|
+      %div{style:"margin: 10px 0; border: 2px solid #f26e25; padding: 5px;"}
+        %strong
+          = link_to rant.issue, leo_path(rant)
+        %br
+          = rant.created_at
+.small-12.columns
+  - if can? :manage, Leo
+    %div
+      = link_to 'Click here to rant', new_leo_path, class: 'button'

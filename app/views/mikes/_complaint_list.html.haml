@@ -1,0 +1,17 @@
+%h2 Mikes Rant
+
+%table
+  %thead
+    %tr
+      %th Issue
+      %th Description
+      - if can? :manage, Mike
+        %th Options
+  %tbody
+    %tr 
+      %td= @mike.issue
+      %td= @mike.complaining
+      - if can? :manage, Mike
+        %td
+          = link_to "Delete", @mike, method: :delete, data: { confirm: "Are you sure you want to remove this request?"}, class: 'tiny alert button'
+          = link_to "Edit", edit_mike_path(@mike), class: 'tiny button'

@@ -1,0 +1,45 @@
+!!!
+%html
+  %head
+    %title Lunch & Learn
+    /[if IE]
+      %script{:type => "text/javascript", :src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+  %body{ data: { controller: "#{controller_name}", action: "#{action_name}" } }
+    .fixed
+      %nav.top-bar
+        %ul.title-area
+          %li.name
+            = link_to image_tag('gs_logo.png'), root_path
+          %li.toggle-topbar
+            %a{ href: "#"}
+        - if current_user
+          %section.top-bar-section
+            %ul.left
+              - if can? :manage, Jim
+                %li
+                  = link_to 'Jims Blog', jims_path
+                %li
+                  = link_to 'Mikes Blog', mikes_path
+                %li
+                  = link_to 'Leos Blog', leos_path
+            %ul.right
+              %li
+                = link_to 'How it Works', fact_pages_path
+              %li.has-dropdown
+                = link_to current_user.username, '#', id: 'logged_user'
+                %ul.dropdown
+                  %li.sign-out= link_to 'Sign Out', destroy_user_session_path, method: :delete
+    .container
+      .row
+        .twelve.columns
+          #flash
+            - flash.each do |name, msg|
+              %div{class: "alert-box #{name == :notice ? "success" : "alert"}"}
+                %a{class: "close", href: "#"} &times
+                = msg
+      .row
+        = yield

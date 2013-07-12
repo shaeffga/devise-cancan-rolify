@@ -1,0 +1,11 @@
+%h2 Whats wrong Leo
+
+%br
+%br
+
+= simple_form_for @leo do |f|
+  = f.input :issue, label: "Issue"
+  %br
+  = f.input :complaining, label: "Description"
+  %br
+  = f.button :submit
